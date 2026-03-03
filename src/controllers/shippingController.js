@@ -4,6 +4,8 @@ const Customer = require("../models/Customer");
 const Seller = require("../models/seller")
 const Product = require("../models/product")
 const { calculateShippingCharge } = require("../services/shippingServices");
+const { calculateShippingSchema } = require("../utils/validators")
+
 
 const getShippingCharge = async (req, res) => {
   try {
@@ -55,6 +57,12 @@ const getShippingCharge = async (req, res) => {
 const calculateShipping = async (req, res) => {
   try {
     const { sellerId, customerId, deliverySpeed } = req.body;
+    const { error } = calculateShippingSchema.validate(req.body);
+
+    if (error) {
+        res.status(400);
+        throw new Error(error.details[0].message);
+    }
 
     // Validate required fields
     if (!sellerId || !customerId || !deliverySpeed)

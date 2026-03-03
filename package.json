@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "seed": "node src/seed.js"
   },
   "keywords": [],
   "author": "Bilal Sadiq",
@@ -15,7 +16,9 @@
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
-    "mongoose": "^9.2.3"
+    "joi": "^18.0.2",
+    "mongoose": "^9.2.3",
+    "node-cache": "^5.1.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
