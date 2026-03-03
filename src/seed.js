@@ -2,7 +2,7 @@ require("dotenv").config();
 const connectDB = require("./config/db");
 
 const Seller = require("./models/seller");
-const Customer = require("./models/Customer");
+const Customer = require("./models/customer");
 const Warehouse = require("./models/warehouse");
 const Product = require("./models/product");
 
