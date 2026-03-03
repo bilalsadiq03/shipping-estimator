@@ -1,3 +1,5 @@
+const swaggerUi = require("swagger-ui-express");
+const swaggerSpec = require("./config/swagger");
 const express = require("express");
 const cors = require("cors");
 const warehouseRoutes = require("./routes/warehouseRoutes");
@@ -14,6 +16,7 @@ app.use(errorHandler)
 
 app.use("/api/v1/warehouse", warehouseRoutes);
 app.use("/api/v1/shipping-charge", shippingRoutes);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.get("/api/health", (req, res) => {
   res.json({ message: "Shipping Estimator API Running" });
