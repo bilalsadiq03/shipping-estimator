@@ -6,7 +6,7 @@ const customerSchema  = new mongoose.Schema({
         required: true,
     },
     phone: {
-        type: toString,
+        type: String,
         required: true,
     },
     location: {

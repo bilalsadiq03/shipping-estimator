@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const warehouseRoutes = require("./routes/warehouseRoutes");
+const shippingRoutes = require("./routes/shippingRoutes");
 
 
 const app = express();
@@ -9,6 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/v1/warehouse", warehouseRoutes);
+app.use("/api/v1/shipping-charge", shippingRoutes);
 
 app.get("/api/health", (req, res) => {
   res.json({ message: "Shipping Estimator API Running" });
